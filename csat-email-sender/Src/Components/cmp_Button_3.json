@@ -106,7 +106,7 @@
         "Name": "html_BtnShadow_1",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 548,
+        "PublishOrderIndex": 549,
         "Rules": [
           {
             "Category": "Data",
@@ -485,7 +485,7 @@
         "Name": "btn_BtnBkg_1",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 549,
+        "PublishOrderIndex": 550,
         "Rules": [
           {
             "Category": "Data",
@@ -877,7 +877,7 @@
         "Name": "btn_BtnProgress",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 550,
+        "PublishOrderIndex": 551,
         "Rules": [
           {
             "Category": "Data",
@@ -1279,7 +1279,7 @@
             "Name": "img_BtnIcon_1",
             "Parent": "con_BtnBase_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 552,
+            "PublishOrderIndex": 553,
             "Rules": [
               {
                 "Category": "Data",
@@ -1704,7 +1704,7 @@
             "Name": "lbl_BtnText_1",
             "Parent": "con_BtnBase_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 553,
+            "PublishOrderIndex": 554,
             "Rules": [
               {
                 "Category": "Data",
@@ -2055,7 +2055,7 @@
         "Name": "con_BtnBase_1",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 551,
+        "PublishOrderIndex": 552,
         "Rules": [
           {
             "Category": "Design",
@@ -2456,7 +2456,7 @@
         "Name": "btn_BtnMain_1",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 554,
+        "PublishOrderIndex": 555,
         "Rules": [
           {
             "Category": "Data",
@@ -2815,7 +2815,7 @@
         "Name": "tmr_Button_1",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 555,
+        "PublishOrderIndex": 556,
         "Rules": [
           {
             "Category": "Data",
@@ -3163,7 +3163,7 @@
         "Name": "html_BtnTextWidth_1",
         "Parent": "cmp_Button_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 556,
+        "PublishOrderIndex": 557,
         "Rules": [
           {
             "Category": "Data",

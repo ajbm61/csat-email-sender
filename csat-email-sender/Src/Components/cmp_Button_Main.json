@@ -106,7 +106,7 @@
         "Name": "html_BtnShadow",
         "Parent": "cmp_Button_Main",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 525,
+        "PublishOrderIndex": 526,
         "Rules": [
           {
             "Category": "Data",
@@ -485,7 +485,7 @@
         "Name": "btn_BtnBkg",
         "Parent": "cmp_Button_Main",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 526,
+        "PublishOrderIndex": 527,
         "Rules": [
           {
             "Category": "Data",
@@ -899,7 +899,7 @@
             "Name": "img_BtnIcon",
             "Parent": "con_BtnBase",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 528,
+            "PublishOrderIndex": 529,
             "Rules": [
               {
                 "Category": "Data",
@@ -1324,7 +1324,7 @@
             "Name": "lbl_BtnText",
             "Parent": "con_BtnBase",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 529,
+            "PublishOrderIndex": 530,
             "Rules": [
               {
                 "Category": "Data",
@@ -1675,7 +1675,7 @@
         "Name": "con_BtnBase",
         "Parent": "cmp_Button_Main",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 527,
+        "PublishOrderIndex": 528,
         "Rules": [
           {
             "Category": "Design",
@@ -2076,7 +2076,7 @@
         "Name": "btn_BtnMain",
         "Parent": "cmp_Button_Main",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 530,
+        "PublishOrderIndex": 531,
         "Rules": [
           {
             "Category": "Data",
@@ -2466,7 +2466,7 @@
         "Name": "html_BtnTextWidth",
         "Parent": "cmp_Button_Main",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 531,
+        "PublishOrderIndex": 532,
         "Rules": [
           {
             "Category": "Data",

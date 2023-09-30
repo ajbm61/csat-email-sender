@@ -99,7 +99,7 @@
         "Name": "html_BRTLShadow",
         "Parent": "cmp_ButtonRTL",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 500,
+        "PublishOrderIndex": 501,
         "Rules": [
           {
             "Category": "Data",
@@ -470,7 +470,7 @@
         "Name": "btn_BRTLBkg",
         "Parent": "cmp_ButtonRTL",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 501,
+        "PublishOrderIndex": 502,
         "Rules": [
           {
             "Category": "Data",
@@ -951,7 +951,7 @@
             "Name": "lbl_BRTLText",
             "Parent": "con_BRTL",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 503,
+            "PublishOrderIndex": 504,
             "Rules": [
               {
                 "Category": "Data",
@@ -1342,7 +1342,7 @@
             "Name": "img_BRTLIcon",
             "Parent": "con_BRTL",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 504,
+            "PublishOrderIndex": 505,
             "Rules": [
               {
                 "Category": "Data",
@@ -1664,7 +1664,7 @@
         "Name": "con_BRTL",
         "Parent": "cmp_ButtonRTL",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 502,
+        "PublishOrderIndex": 503,
         "Rules": [
           {
             "Category": "Design",
@@ -2082,7 +2082,7 @@
         "Name": "btn_BRTL",
         "Parent": "cmp_ButtonRTL",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 505,
+        "PublishOrderIndex": 506,
         "Rules": [
           {
             "Category": "Data",
@@ -2465,7 +2465,7 @@
         "Name": "html_BRTLTextWidth",
         "Parent": "cmp_ButtonRTL",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 506,
+        "PublishOrderIndex": 507,
         "Rules": [
           {
             "Category": "Data",
