@@ -1708,25 +1708,27 @@
             =UpdateContext({ locProgressBar: true });
             SubmitForm(frm_DetailsForm);
         Text: ="SUBMIT"
-        Visible: =false
+        Visible: =true
         Width: =200
-        X: =Parent.Width / 2
+        X: =699
         Y: =672
         ZIndex: =5
 
     cmp_Button_1 As cmp_Button_Main:
         BorderRadius: =10
+        BoxShadow: =false
         FontSize: =16
         Height: =60
         Icon: |-
             ="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><title>close</title><path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /></svg>"
+        IsOutlined: =true
         OnSelect: |-
             =Select(Button16);
             //Navigate('Gallery Screen', ScreenTransition.Fade);
             ResetForm(frm_DetailsForm);
             Back();
         Text: ="CANCEL"
-        Visible: =false
+        Visible: =true
         X: =Parent.Width / 2 - Self.Width
         Y: =672
         ZIndex: =8
@@ -1797,136 +1799,4 @@
         X: =962
         Y: =692
         ZIndex: =11
-
-    Container12 As groupContainer.manualLayoutContainer:
-        BorderColor: |-
-            =If(Button10.DisplayMode = DisplayMode.Disabled, Color.Transparent, ColorValue("#79747E"))
-        BorderThickness: =2
-        Fill: =Color.Transparent
-        Height: =50
-        RadiusBottomLeft: =15
-        RadiusBottomRight: =15
-        RadiusTopLeft: =15
-        RadiusTopRight: =15
-        Width: =160
-        X: =523
-        Y: =682
-        ZIndex: =12
-
-        Button7 As button:
-            Align: =Align.Right
-            BorderColor: =RGBA(121, 116, 126, 1)
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            Fill: =Color.Transparent
-            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-            FocusedBorderThickness: =2
-            FontWeight: =FontWeight.Semibold
-            Height: =Parent.Height
-            HoverBorderColor: =RGBA(0, 0, 0, 0)
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =ColorFade(RGBA(135, 100, 184, 1), -10%)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -50%)
-            PressedColor: =RGBA(255, 255, 255, 1)
-            PressedFill: =ColorFade(RGBA(135, 100, 184, 1), -30%)
-            Size: =14
-            Text: =""
-            Width: =Parent.Width
-            ZIndex: =1
-
-        Container13 As groupContainer.horizontalAutoLayoutContainer:
-            BorderColor: =RGBA(0, 0, 0, 0)
-            BorderStyle: =BorderStyle.None
-            Height: =50
-            LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =If(Len(img_CancelIcon_1.Image) > 0 && Label19.Visible, 16, 0)
-            LayoutJustifyContent: =LayoutJustifyContent.Center
-            LayoutMode: =LayoutMode.Auto
-            Width: =160
-            ZIndex: =3
-
-            Label19 As label:
-                Align: =If(Len(24) > 0, Align.Right, Align.Center)
-                BorderColor: =RGBA(0, 0, 0, 0)
-                BorderStyle: =BorderStyle.None
-                Color: |-
-                    =If(
-                        Button10.DisplayMode = DisplayMode.Disabled,
-                        ColorValue("#FFFFFF"),
-                        ColorValue("#7500c0")
-                    )
-                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: ="Roboto, 'Segoe UI'"
-                Height: =Parent.Height
-                LayoutMinHeight: =20
-                LayoutMinWidth: =560
-                LineHeight: =1
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingTop: =0
-                Size: =13
-                Text: ="SUBMIT"
-                Width: =Len(Self.Text) * (Self.Size)
-                X: =20
-                Y: =20
-                ZIndex: =1
-
-            img_CancelIcon_1 As image:
-                BorderColor: =RGBA(0, 0, 0, 0)
-                BorderStyle: =BorderStyle.None
-                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisabledFill: =RGBA(0, 0, 0, 0)
-                FocusedBorderThickness: =0
-                Height: =Parent.Height
-                HoverBorderColor: =RGBA(0, 0, 0, 0)
-                HoverFill: =RGBA(0, 0, 0, 0)
-                Image: |-
-                    ="data:image/svg+xml;utf8, "& EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-x' viewBox='0 0 16 16' fill='#fff'><path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/></svg>")
-                LayoutMinHeight: =320
-                LayoutMinWidth: =320
-                PaddingRight: =If(Len(Label19.Text) > 0, 10, 0)
-                PressedBorderColor: =RGBA(0, 0, 0, 0)
-                PressedFill: =RGBA(0, 0, 0, 0)
-                Width: =24 + Self.PaddingLeft * 0.9 + 20
-                X: =20
-                Y: =20
-                ZIndex: =2
-
-        Button10 As button:
-            BorderColor: =Color.Transparent
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(0, 0, 0, 0.5)
-            DisplayMode: =If(frm_DetailsForm.Valid && frm_DetailsForm.Unsaved, DisplayMode.Edit, DisplayMode.Disabled)
-            Fill: =Color.Transparent
-            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-            Height: =Parent.Height
-            HoverBorderColor: =RGBA(0, 0, 0, 0)
-            HoverColor: =RGBA(255, 255, 255, 1)
-            HoverFill: =RGBA(0, 0, 0, 0.2)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -50%)
-            PressedColor: =RGBA(255, 255, 255, 1)
-            PressedFill: =ColorFade(RGBA(135, 100, 184, 1), -30%)
-            RadiusBottomLeft: =0
-            RadiusBottomRight: =0
-            RadiusTopLeft: =0
-            RadiusTopRight: =0
-            Size: =14
-            Text: =""
-            Width: =Parent.Width
-            ZIndex: =4
 
