@@ -329,3 +329,9 @@ Screen8 As screen:
         Y: =412
         ZIndex: =6
 
+    cmp_Input_1 As cmp_Input:
+        OnSelect: =true
+        X: =580
+        Y: =40
+        ZIndex: =7
+

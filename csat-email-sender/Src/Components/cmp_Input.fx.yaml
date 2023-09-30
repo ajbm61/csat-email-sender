@@ -1,0 +1,100 @@
+cmp_Input As CanvasComponent:
+    OnSelect():
+        ThisProperty:
+            Default: =true
+    DisplayMode: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =50
+    HintText: ="Input here"
+    Margin: =5
+    Width: =300
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    lbl_Input As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Height: =Parent.Height
+        OnSelect: =Set(showDivider, false);
+        Size: =13
+        Text: =""
+        Width: =Parent.Width
+        X: =
+        ZIndex: =1
+
+    txt_InputBkg As text:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =0
+        Color: =RGBA(51, 51, 51, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(204, 204, 204, 0.5)
+        FocusedBorderThickness: =0
+        Height: =Parent.Height - 2 * cmp_Input.Margin
+        HintText: =cmp_Input.HintText
+        HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(204, 204, 204, 0.5)
+        OnSelect: =Set(showDivider, true);
+        PaddingBottom: =0
+        PressedBorderColor: =RGBA(135, 100, 184, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =13
+        Width: =Parent.Width - 2 * cmp_Input.Margin
+        X: =cmp_Input.Margin
+        Y: =cmp_Input.Margin
+        ZIndex: =2
+
+    rec_InputDivider As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: |-
+            =If(!showDivider, ColorFade(Color.Gray, 0.5), ColorValue("#7500C0"))
+        FocusedBorderThickness: =
+        Height: =3
+        HoverFill: =RGBA(135, 100, 184, 1)
+        PressedFill: =RGBA(135, 100, 184, 1)
+        Width: =txt_InputBkg.Width
+        X: =txt_InputBkg.X
+        Y: =txt_InputBkg.Y + txt_InputBkg.Height
+        ZIndex: =3
+
+    txt_InputBase As text:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =0
+        Color: =RGBA(0, 18,107, 1)
+        Default: =txt_InputBkg.HintText
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =Self.Color
+        DisabledFill: =RGBA(230, 230, 230, 1)
+        Fill: =Color.Transparent
+        FocusedBorderThickness: =0
+        Height: =Parent.Height - 2 * cmp_Input.Margin
+        HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        PaddingBottom: =0
+        PressedBorderColor: =RGBA(135, 100, 184, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Size: =13
+        Visible: =showDivider
+        Width: =Parent.Width - 2 * cmp_Input.Margin
+        X: =cmp_Input.Margin
+        Y: =cmp_Input.Margin
+        ZIndex: =4
+

@@ -99,7 +99,7 @@
         "Name": "html_ButtonShadow",
         "Parent": "cmp_ButtonLTR_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 489,
+        "PublishOrderIndex": 490,
         "Rules": [
           {
             "Category": "Data",
@@ -470,7 +470,7 @@
         "Name": "btn_ButtonBkg",
         "Parent": "cmp_ButtonLTR_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 490,
+        "PublishOrderIndex": 491,
         "Rules": [
           {
             "Category": "Data",
@@ -864,7 +864,7 @@
             "Name": "img_ButtonIcon",
             "Parent": "con_Button",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 492,
+            "PublishOrderIndex": 493,
             "Rules": [
               {
                 "Category": "Data",
@@ -1282,7 +1282,7 @@
             "Name": "lbl_ButtonText",
             "Parent": "con_Button",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 493,
+            "PublishOrderIndex": 494,
             "Rules": [
               {
                 "Category": "Data",
@@ -1664,7 +1664,7 @@
         "Name": "con_Button",
         "Parent": "cmp_ButtonLTR_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 491,
+        "PublishOrderIndex": 492,
         "Rules": [
           {
             "Category": "Design",
@@ -2082,7 +2082,7 @@
         "Name": "btn_Button",
         "Parent": "cmp_ButtonLTR_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 494,
+        "PublishOrderIndex": 495,
         "Rules": [
           {
             "Category": "Data",
@@ -2465,7 +2465,7 @@
         "Name": "html_ButtonAutoWidth",
         "Parent": "cmp_ButtonLTR_3",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 495,
+        "PublishOrderIndex": 496,
         "Rules": [
           {
             "Category": "Data",

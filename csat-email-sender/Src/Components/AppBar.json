@@ -111,7 +111,7 @@
             "Name": "img_AppBarLogo",
             "Parent": "con_AppBar",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 529,
+            "PublishOrderIndex": 530,
             "Rules": [
               {
                 "Category": "Data",
@@ -420,7 +420,7 @@
             "Name": "img_AB_Photo",
             "Parent": "con_AppBar",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 530,
+            "PublishOrderIndex": 531,
             "Rules": [
               {
                 "Category": "Data",
@@ -756,7 +756,7 @@
             "Name": "lbl_AB_UserName",
             "Parent": "con_AppBar",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 531,
+            "PublishOrderIndex": 532,
             "Rules": [
               {
                 "Category": "Data",
@@ -1136,7 +1136,7 @@
         "Name": "con_AppBar",
         "Parent": "AppBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 528,
+        "PublishOrderIndex": 529,
         "Rules": [
           {
             "Category": "Design",
@@ -1341,7 +1341,7 @@
         "Name": "Rectangle13",
         "Parent": "AppBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 532,
+        "PublishOrderIndex": 533,
         "Rules": [
           {
             "Category": "Design",
