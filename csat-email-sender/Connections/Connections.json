@@ -1,0 +1,137 @@
+{
+  "9f35d953-e543-418c-bdc2-33a1404ecf9c": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "ab762a02-0eb9-4d66-9de2-55168537869c": {
+          "value": "shared_sharepointonline"
+        },
+        "d716e951-bba1-4846-b581-c9f0ee52da6a": {
+          "value": "shared_office365"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "1d5b118e-166b-4fff-8b03-31b839f5a75f"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "d716e951-bba1-4846-b581-c9f0ee52da6a"
+        },
+        "shared_sharepointonline": {
+          "value": "ab762a02-0eb9-4d66-9de2-55168537869c"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "1d5b118e-166b-4fff-8b03-31b839f5a75f"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "SendEmailSurvey"
+    ],
+    "dependencies": {
+      "shared_office365": "d716e951-bba1-4846-b581-c9f0ee52da6a",
+      "shared_sharepointonline": "ab762a02-0eb9-4d66-9de2-55168537869c"
+    },
+    "dependents": [],
+    "id": "9f35d953-e543-418c-bdc2-33a1404ecf9c"
+  },
+  "ab762a02-0eb9-4d66-9de2-55168537869c": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://ts.accenture.com/sites/Initiatives-Analytics": {
+        "dataSources": {
+          "CSAT Email Sender Versions": {
+            "tableName": "66c9b494-d765-4a8d-92bc-a982b9fa2ac0"
+          },
+          "CSAT Product": {
+            "tableName": "7adac47f-0e98-4b07-a6ab-e21bb5c003db"
+          },
+          "CSR Details": {
+            "tableName": "4403a46b-fa35-4f7a-9ca1-a48e4ed66c7f"
+          },
+          "CSR Feature": {
+            "tableName": "3aafc8ff-9a08-438f-8f35-0472f36becdf"
+          },
+          "CSR Teams": {
+            "tableName": "7745394a-9627-4720-8afd-1e67cdea9222"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "CSAT Product",
+      "CSR Details",
+      "CSR Feature",
+      "CSR Teams",
+      "CSAT Email Sender Versions"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "9f35d953-e543-418c-bdc2-33a1404ecf9c"
+    ],
+    "id": "ab762a02-0eb9-4d66-9de2-55168537869c"
+  },
+  "af1d48d7-4016-45bd-b213-d03a06362c86": {
+    "appActions": [
+      "MyProfile_V2",
+      "UserPhotoMetadata",
+      "UserPhoto_V2",
+      "UserProfile_V2"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "af1d48d7-4016-45bd-b213-d03a06362c86"
+  },
+  "d716e951-bba1-4846-b581-c9f0ee52da6a": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "9f35d953-e543-418c-bdc2-33a1404ecf9c"
+    ],
+    "id": "d716e951-bba1-4846-b581-c9f0ee52da6a"
+  }
+}

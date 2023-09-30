@@ -1,0 +1,183 @@
+cmp_ProgressButton As CanvasComponent:
+    OnSelect():
+        ThisProperty:
+            Default: =true
+    BorderRadius: =5
+    BoxShadow: =true
+    DisabledColor: =RGBA(200, 198, 196, 1)
+    DisplayMode: =DisplayMode.Edit
+    Fill: =Color.Transparent
+    Font: ="Roboto, 'Segoe UI'"
+    FontSize: =14
+    FontWeight: =FontWeight.Normal
+    Height: =70
+    Items: |-
+        =Table(
+            {
+                ID: 1,
+                Text: "Send"
+            },
+            {
+                ID: 2,
+                Text: "Sending..."
+            },
+            {
+                ID: 3,
+                Text: "Sent"
+            }
+        )
+    Margin: =5
+    OnReset: =
+    PrimaryColor: =RGBA(109, 49, 162, 1)
+    ProgressColor: |-
+        =ColorValue("#6200EE")
+    Width: =200
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    tmr_Progress As timer:
+        AutoStart: =runTimer
+        Duration: =4000
+        Fill: =RGBA(56, 96, 178, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+        OnTimerEnd: |-
+            =Set(runTimer, false);
+            Set(trackLabel, 3);
+        Reset: =!runTimer
+        Visible: =false
+        X: =40
+        Y: =30
+        ZIndex: =1
+
+    html_ProgressShadow As htmlViewer:
+        Height: =cmp_ProgressButton.Height
+        HtmlText: |-
+            ="<div style='
+                position: absolute;
+                left: "& cmp_ProgressButton.Margin &"px;
+                top: "& cmp_ProgressButton.Margin &"px;
+                width: "& btn_ProgressBkg.Width &"px;
+                height: "& btn_ProgressBkg.Height &"px;
+                border-radius: "& cmp_ProgressButton.BorderRadius &"px;
+                box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25);
+            '</div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Visible: =cmp_ProgressButton.BoxShadow
+        Width: =cmp_ProgressButton.Width
+        ZIndex: =2
+
+    btn_ProgressBkg As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.View
+        Fill: =cmp_ProgressButton.PrimaryColor
+        FontWeight: =FontWeight.Semibold
+        Height: =cmp_ProgressButton.Height - 2 * cmp_ProgressButton.Margin
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+        RadiusBottomLeft: =cmp_ProgressButton.BorderRadius - 5
+        RadiusBottomRight: =cmp_ProgressButton.BorderRadius
+        RadiusTopLeft: =cmp_ProgressButton.BorderRadius - 5
+        RadiusTopRight: =cmp_ProgressButton.BorderRadius
+        Size: =cmp_ProgressButton.FontSize
+        TabIndex: =-1
+        Text: =""
+        Width: =cmp_ProgressButton.Width - 2 * cmp_ProgressButton.Margin
+        X: =cmp_ProgressButton.Margin
+        Y: =cmp_ProgressButton.Margin
+        ZIndex: =3
+
+    btn_ProgressMain As button:
+        BorderColor: =Color.Transparent
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =cmp_ProgressButton.ProgressColor
+        FocusedBorderThickness: =2
+        FontWeight: =FontWeight.Semibold
+        Height: =cmp_ProgressButton.Height - 2 * cmp_ProgressButton.Margin
+        HoverBorderColor: =Self.Fill
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =btn_ProgressBkg.Fill
+        PaddingBottom: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: =""
+        Width: =(cmp_ProgressButton.Width - 2 * cmp_ProgressButton.Margin) * (tmr_Progress.Value / tmr_Progress.Duration)
+        X: =cmp_ProgressButton.Margin
+        Y: =cmp_ProgressButton.Margin
+        ZIndex: =4
+
+    lbl_ProgressText As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: |-
+            =If(
+                cmp_ProgressButton.DisplayMode = DisplayMode.Disabled,
+                Color.Black,
+                Color.White
+            )
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =cmp_ProgressButton.Font
+        FontWeight: =cmp_ProgressButton.FontWeight
+        Height: =cmp_ProgressButton.Height - 2 * cmp_ProgressButton.Margin
+        PaddingLeft: =10
+        Size: =cmp_ProgressButton.FontSize
+        Text: =LookUp(cmp_ProgressButton.Items, ID = trackLabel, Text)
+        Width: =cmp_ProgressButton.Width - 2 * cmp_ProgressButton.Margin
+        X: =cmp_ProgressButton.Margin
+        Y: =cmp_ProgressButton.Margin
+        ZIndex: =5
+
+    btn_ProgressOverlay As button:
+        Color: |-
+            =If(
+                cmp_ProgressButton.DisplayMode = DisplayMode.Disabled,
+                Color.Transparent,
+                cmp_ProgressButton.DisabledColor
+            )
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =Color.Transparent
+        DisplayMode: =cmp_ProgressButton.DisplayMode
+        Fill: |-
+            =If(
+                cmp_ProgressButton.DisplayMode = DisplayMode.Disabled,
+                cmp_ProgressButton.DisabledColor,
+                Color.Transparent
+            )
+        FocusedBorderThickness: =2
+        FontWeight: =FontWeight.Semibold
+        Height: =cmp_ProgressButton.Height - 2 * cmp_ProgressButton.Margin
+        HoverBorderColor: =Color.Transparent
+        HoverColor: =Color.Transparent
+        HoverFill: =Color.Transparent
+        OnSelect: |-
+            =Set(runTimer, !runTimer);
+            Set(trackLabel, 2);
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =cmp_ProgressButton.BorderRadius
+        RadiusBottomRight: =cmp_ProgressButton.BorderRadius
+        RadiusTopLeft: =cmp_ProgressButton.BorderRadius
+        RadiusTopRight: =cmp_ProgressButton.BorderRadius
+        Size: =15
+        Text: =""
+        Width: =cmp_ProgressButton.Width - 2 * cmp_ProgressButton.Margin
+        X: =cmp_ProgressButton.Margin
+        Y: =cmp_ProgressButton.Margin
+        ZIndex: =6
+

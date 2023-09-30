@@ -1,0 +1,650 @@
+"'Email Screen' As screen":
+    BackgroundImage: ='rainbow-vortex'
+    Fill: =RGBA(0, 0, 0, 0)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =RGBA(135, 100, 184, 1)
+    OnHidden: =
+    OnVisible: =Reset(ProgressButton_1);
+
+    btn_GalleryPage As button:
+        BorderColor: =RGBA(150, 150, 140, 1)
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =75
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(0, 255, 255, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        OnSelect: |-
+            =ClearCollect(
+                colAllProduct,
+                {
+                    Value: "All"
+                },
+                Sort(
+                    Distinct(
+                        Filter(
+                            DetailsCollection,
+                            'Created By'.Email = UserEmail
+                        ),
+                        Product
+                    ),
+                    Value
+                )
+            );
+            
+            ClearCollect(
+                colAllTeam,
+                {
+                    Value: "All"
+                },
+                Sort(
+                    Distinct(
+                        Filter(
+                            DetailsCollection,
+                            'Created By'.Email = UserEmail
+                        ),
+                        Team
+                    ),
+                    Value
+                )
+            );
+            
+            Navigate('Gallery Screen', ScreenTransition.Fade);
+        PressedBorderColor: |-
+            =//Self.HoverBorderColor
+            Color.Transparent
+        PressedColor: =Self.HoverColor
+        PressedFill: |-
+            =//Self.HoverFill
+            Color.Transparent
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="FEATURE GALLERY"
+        Width: =245
+        X: =200
+        Y: =32
+        ZIndex: =5
+
+    btn_LandingPage As button:
+        BorderColor: =RGBA(150, 150, 140, 1)
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =75
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverColor: =RGBA(0, 255, 255, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: =Navigate('Landing Screen', ScreenTransition.Fade)
+        PressedBorderColor: |-
+            =//Self.HoverBorderColor
+            Color.Transparent
+        PressedColor: =Self.HoverColor
+        PressedFill: =Color.Transparent
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="HOME"
+        Width: =120
+        X: =80
+        Y: =32
+        ZIndex: =6
+
+    Con_EmailSurvey As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =1.5
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =470
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =400
+        X: =(Parent.Width - Self.Width) / 2
+        Y: =180
+        ZIndex: =7
+
+        Drp_SolutionArea As dropdown:
+            AccessibleLabel: ="Solution Name"
+            BorderColor: =Color.LightGray
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =Self.Fill
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(107, 114, 128, 1)
+            ChevronHoverBackground: =RGBA(0, 0, 0, 0)
+            ChevronHoverFill: =RGBA(161, 0, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =Color.Gray
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =Color.WhiteSmoke
+            FocusedBorderThickness: =If(true, 2, 1)
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(219, 219, 219, 1)
+            Items: =colSolutionArea
+            OnChange: =//ClearCollect(colProduct,Sort(Filter(DetailsCollection,'Created By'.Email=UserEmail And 'Solution Area'.Value=Drp_SolutionArea.Selected.Result),Product,SortOrder.Ascending))
+            PaddingLeft: =12
+            PressedFill: =RGBA(0, 0, 0, 0)
+            SelectionColor: =RGBA(51, 51, 51, 1)
+            SelectionFill: |-
+                =ColorValue("#7500C04D")
+            Size: =14
+            Tooltip: ="The list of Solution Names"
+            Width: =Parent.Width - 80
+            X: =40
+            Y: =Lbl_SolutionArea.Y + Lbl_SolutionArea.Height
+            ZIndex: =1
+
+        Lbl_SolutionArea As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =18
+            Size: =12
+            Text: ="SOLUTION AREA"
+            X: =40
+            Y: =30
+            ZIndex: =2
+
+        Lbl_Product As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =12
+            Text: ="PRODUCT"
+            X: =40
+            Y: =120
+            ZIndex: =3
+
+        Drp_Product As dropdown:
+            AccessibleLabel: ="Solution Name"
+            BorderColor: =RGBA(211, 211, 211, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =Self.Fill
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(107, 114, 128, 1)
+            ChevronHoverBackground: =RGBA(0, 0, 0, 0)
+            ChevronHoverFill: =RGBA(161, 0, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =Color.WhiteSmoke
+            FocusedBorderThickness: =1.5
+            HoverBorderColor: =RGBA(164, 164, 164, 1)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(244, 244, 244, 1)
+            Items: |-
+                =Sort(
+                    Filter(
+                        colDetailsList,
+                        'Created By'.Email = UserEmail And 
+                        'Solution Area'.Value = Drp_SolutionArea.Selected.Result && 
+                        Status.Value = "Active"
+                    ),
+                    Product,
+                    SortOrder.Ascending
+                )
+            OnSelect: =Set(activeDetail, Drp_Product.Selected);
+            PaddingLeft: =12
+            PressedBorderColor: =RGBA(171, 171, 171, 1)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            SelectionColor: =RGBA(51, 51, 51, 1)
+            SelectionFill: |-
+                =ColorValue("#7500C04D")
+            Size: =14
+            Tooltip: ="List of Solution Names based on selected Solution Area"
+            Width: =Parent.Width - 80
+            X: =40
+            Y: =Lbl_Product.Y + Lbl_Product.Height
+            ZIndex: =4
+
+        Lbl_Feature As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =12
+            Text: ="FEATURE"
+            X: =40
+            Y: =210
+            ZIndex: =5
+
+        Lbl_FeatureName As label:
+            AutoHeight: =If(IsBlank(Self.Text), false, true)
+            BorderColor: =RGBA(107, 114, 128, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =Color.WhiteSmoke
+            FocusedBorderThickness: =4
+            Height: =If(Self.AutoHeight = false, 40, 10)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =9
+            PaddingTop: =10
+            Text: =Drp_Product.Selected.Product
+            Width: =Parent.Width - 80
+            X: =40
+            Y: =Lbl_Feature.Y + Lbl_Feature.Height
+            ZIndex: =6
+
+        ProgressButton_1 As ProgressButton:
+            BackgroundFill: =RGBA(109, 49, 162, 1)
+            Height: =70
+            Items: |-
+                =Table(
+                    {
+                        id: 1,
+                        text: "Send Survey"
+                    },
+                    {
+                        id: 2,
+                        text: "Sending..."
+                    },
+                    {
+                        id: 3,
+                        text: "Email Sent"
+                    }
+                )
+            OnSelect: |-
+                =// patch status column in details
+                Patch(
+                    'CSR Details',
+                    LookUp(DetailsCollection, Feature = Lbl_FeatureName.Text),
+                    {
+                        Status: Drp_DetailsStatus.Selected
+                    }
+                );
+                
+                // send email
+                SendEmailSurvey.Run(
+                    Drp_Product.Selected.ID,
+                    Lbl_TeamNabGroup.Text,
+                    Drp_SolutionArea.Selected.Result,
+                    Drp_Product.Selected.Product,
+                    Lbl_FeatureName.Text
+                );
+                
+                // reset dropdowns and refresh list
+                Reset(Drp_SolutionArea);
+                Reset(Drp_Product);
+                Refresh('CSR Details');
+                
+                //UpdateContext({ locDialog: true });
+            ProgressFill: =RGBA(98, 0, 238, 1)
+            ProgressHeight: =60
+            TextColor: =RGBA(200, 198, 196, 1)
+            Visible: =false
+            X: =124
+            Y: =427
+            ZIndex: =7
+
+        Btn_SendSurvey As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: |-
+                =If(
+                    IsBlank(Drp_Product.Selected.Product),
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(109, 49, 162, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =// submit form
+                Patch(
+                    colDetailsList,
+                    LookUp(DetailsCollection, ID = Drp_Product.Selected.ID),
+                    {
+                        Status: Drp_DetailsStatus.Selected
+                    }
+                );
+                
+                // check for errors
+                If(
+                    IsEmpty(Errors('CSR Details')),
+                    // success
+                    UpdateContext({ locDialog: true }),
+                    // failed
+                    Notify("Oops! Something went wrong!", NotificationType.Error)
+                );
+                
+                SendEmailSurvey.Run(Drp_Product.Selected.ID,Drp_Product.Selected.'Team Nab Group'.Email,Drp_SolutionArea.Selected.Result,Drp_Product.Selected.Product,Drp_Product.Selected.Feature);
+                
+                UpdateContext({ locDialog: true });
+                
+                Refresh('CSR Details');
+                
+                Reset(Drp_SolutionArea);
+                Reset(Drp_Product);
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Size: =12
+            Text: ="SEND SURVEY"
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =Lbl_FeatureName.Y + Lbl_FeatureName.Height + 100
+            ZIndex: =8
+
+        Rectangle19 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: |-
+                =If(
+                    !IsBlank(Drp_SolutionArea.SelectedText),
+                    RGBA(135, 100, 184, 1),
+                    Color.Gray
+                )
+            Height: =2
+            Width: =Drp_SolutionArea.Width
+            X: =Drp_SolutionArea.X
+            Y: =Drp_SolutionArea.Y + Drp_SolutionArea.Height - Self.Height
+            ZIndex: =9
+
+        Rectangle19_1 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: |-
+                =If(
+                    !IsBlank(Drp_SolutionArea.SelectedText),
+                    RGBA(135, 100, 184, 1),
+                    Color.Gray
+                )
+            Height: =2
+            Width: =Drp_Product.Width
+            X: =Drp_Product.X
+            Y: =Drp_Product.Y + Drp_Product.Height - Self.Height
+            ZIndex: =10
+
+        Rectangle19_2 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: |-
+                =If(
+                    !IsBlank(Drp_SolutionArea.SelectedText),
+                    RGBA(135, 100, 184, 1),
+                    Color.Gray
+                )
+            Height: =2
+            Width: =Lbl_FeatureName.Width
+            X: =Lbl_FeatureName.X
+            Y: =Lbl_FeatureName.Y + Lbl_FeatureName.Height - Self.Height
+            ZIndex: =11
+
+    Rectangle8 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =4
+        Height: =75
+        HoverFill: =RGBA(135, 100, 184, 1)
+        PressedFill: =RGBA(135, 100, 184, 1)
+        Width: =3
+        X: =200
+        Y: =32
+        ZIndex: =8
+
+    Con_Dialog As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(230, 230, 230, 0.9)
+        Height: =Parent.Height
+        Visible: |-
+            =locDialog
+            //true
+        Width: =Parent.Width
+        ZIndex: =9
+
+        Container3 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DropShadow: =DropShadow.Semibold
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =347
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =Parent.Height / 2 - Self.Height / 2
+            ZIndex: =1
+
+            Rectangle4 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                HoverFill: =RGBA(135, 100, 184, 1)
+                PressedFill: =RGBA(135, 100, 184, 1)
+                Visible: =false
+                Width: =500
+                ZIndex: =1
+
+            Image2 As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: ='31-check-outline-green'
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =20
+                ZIndex: =2
+
+            Label1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                Height: =62
+                Size: =38
+                Text: ="Awesome!"
+                Width: =Parent.Width
+                Y: =120
+                ZIndex: =3
+
+            Label2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Text: ="An email was sent to the target respondent."
+                Width: =Parent.Width
+                Y: =182
+                ZIndex: =4
+
+            Button8 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(161, 0, 255, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =60
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Refresh('CSR Details');
+                    
+                    UpdateContext({ locDialog: false });
+                PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+                RadiusBottomLeft: =15
+                RadiusBottomRight: =15
+                RadiusTopLeft: =15
+                RadiusTopRight: =15
+                Size: =15
+                Text: ="DONE"
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =243
+                ZIndex: =6
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =22
+
+        Drp_DetailsStatus As dropdown:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            Default: ="Survey Sent"
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Font: =Font.'Segoe UI'
+            Height: =44
+            HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            Items: =Choices([@'CSR Details'].Status)
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(135, 100, 184, 1)
+            SelectionFill: =RGBA(135, 100, 184, 1)
+            Size: =13
+            Visible: =false
+            Width: =210
+            Y: =723
+            ZIndex: =1
+
+        Lbl_TeamNabGroup As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =38
+            Italic: =true
+            Size: =13
+            Text: =activeDetail.'Team Nab Group'.Email
+            Visible: =false
+            Width: =362
+            Y: =688
+            ZIndex: =2
+
+        Lbl_TeamName As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =38
+            Size: =13
+            Text: |-
+                =//Drp_Product.Selected.Value
+                activeDetail.Team
+            Visible: =false
+            Width: =325
+            Y: =653
+            ZIndex: =3
+
+        Lbl_ID As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =38
+            Size: =13
+            Text: =activeDetail.ID
+            Visible: =false
+            Width: =82
+            Y: =620
+            ZIndex: =4
+

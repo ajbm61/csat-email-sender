@@ -1,0 +1,176 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |-
+        =DetailsCollection = 'CSR Details';
+        UserEmail = User().Email;
+        MyProfile = Office365Users.MyProfileV2();
+        CurrentUserPhoto = If(
+            Office365Users.UserPhotoMetadata(MyProfile.userPrincipalName).HasPhoto,
+            Office365Users.UserPhotoV2(MyProfile.userPrincipalName)
+        );
+        
+        MyUserId = MyProfile.id;
+        MyUserDisplayName = MyProfile.displayName;
+        MyUserEmail = MyProfile.mail;
+        
+        //UserPhoto = Office365Users.UserPhotoV2(ThisUser.mail);
+        //UserDisplayName = Office365Users.UserProfileV2(ThisUser.mail).displayName;
+        //UserJobPosition = Office365Users.UserProfileV2(ThisUser.mail).jobTitle;
+        
+        colSolutionArea = Sort(
+            ForAll(
+                Distinct(
+                    Filter(
+                        'CSR Details',
+                        'Created By'.Email = UserEmail && Status.Value = "Active"
+                    ),
+                    'Solution Area'.Value
+                ),
+                { Result: ThisRecord.Value }
+            ),
+            Result
+        );
+        
+        colFilterDetails = Filter(
+            colDetailsList,
+            'Created By'.Email = UserEmail
+        );
+        
+        appStyles = {
+            Background: {
+                Fill: ColorValue("#F3F2F1")
+            },
+            Checkbox: {
+                BorderColor: RGBA(0, 0, 0, 0),
+                BorderThickness: 1.5
+            },
+            Icons: {
+                Color: "6264A7",
+                DisabledColor: "605E5C"
+            },
+            Dropdown: {
+                BorderColor: ColorValue("#FFFFFF"),
+                BorderThickness: 1,
+                ChevronBackground: ColorValue("#FFFFFF"),
+                ChevronDisabledBackground: ColorValue("#605E5C"),
+                ChevronDisabledFill: ColorValue("#B3B0AD"),
+                ChevronFill: ColorValue("#605E5C"),
+                ChevronHoverBackground: ColorValue("#FFFFFF"),
+                ChevronHoverFill: ColorValue("#605E5C"),
+                Color: ColorValue("#605E5C"),
+                DisabledBorderColor: ColorValue("#B3B0AD"),
+                DisabledColor: ColorValue("#605E5C"),
+                DisabledFill: ColorValue("#EDEBE9"),
+                Fill: ColorValue("#FFFFFF"),
+                FocusedBorderColor: ColorValue("#6264A7"),
+                FocusedBorderThickness: 1,
+                HoverBorderColor: ColorValue("#FFFFFF"),
+                HoverColor: ColorValue("#605E5C"),
+                HoverFill: ColorValue("#EDEBE9"),
+                PressedBorderColor: ColorValue("#6264A7"),
+                PressedColor: ColorValue("#605E5C"),
+                PressedFill: ColorValue("#FFFFFF"),
+                SelectionColor: ColorValue("#201F1E"),
+                SelectionFill: ColorValue("#C8C6C4")
+            }
+        };
+        
+        baseStyle = {
+            primaryColor: ColorValue("#A100FF"),
+            secondaryColor: ColorValue("#7500C0"),
+            tertiaryColor: ColorValue("#6D31A2"),
+            backgroundColor: ColorValue("#EDEDED"),
+            textColor: ColorValue("#000000"),
+            font: "Roboto, 'Segoe UI'",
+            fontSize: 14,
+            borderRadius: 5
+        };
+        
+        appIcons = {
+            Checkbox: {
+                Check: "<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/></svg>",
+                Uncheck: "<svg xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 -960 960 960' width='48'><path d='M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Z'/></svg>"
+            }
+        };
+    OnStart: |-
+        =Concurrent(
+            ClearCollect(
+                colDetailsList,
+                'CSR Details'
+            ),
+            ClearCollect(
+                colTeamsList,
+                'CSR Teams'
+            )
+        );
+        
+        Set(
+            gblStyles,
+            {
+                Dropdown: {
+                    BorderColor: ColorValue("#FFFFFF"),
+                    BorderThickness: 1,
+                    ChevronBackground: ColorValue("#FFFFFF"),
+                    ChevronDisabledBackground: ColorValue("#605E5C"),
+                    ChevronDisabledFill: ColorValue("#B3B0AD"),
+                    ChevronFill: ColorValue("#605E5C"),
+                    ChevronHoverBackground: ColorValue("#FFFFFF"),
+                    ChevronHoverFill: ColorValue("#605E5C"),
+                    Color: ColorValue("#605E5C"),
+                    DisabledBorderColor: ColorValue("#B3B0AD"),
+                    DisabledColor: ColorValue("#605E5C"),
+                    DisabledFill: ColorValue("#EDEBE9"),
+                    Fill: ColorValue("#FFFFFF"),
+                    FocusedBorderColor: ColorValue("#6264A7"),
+                    FocusedBorderThickness: 1,
+                    HoverBorderColor: ColorValue("#FFFFFF"),
+                    HoverColor: ColorValue("#605E5C"),
+                    HoverFill: ColorValue("#EDEBE9"),
+                    PressedBorderColor: ColorValue("#6264A7"),
+                    PressedColor: ColorValue("#605E5C"),
+                    PressedFill: ColorValue("#FFFFFF"),
+                    SelectionColor: ColorValue("#201F1E"),
+                    SelectionFill: ColorValue("#C8C6C4")
+                },
+                ScreenBackground: {
+                    Fill: ColorValue("#EDEDED")
+                }
+            }
+        );
+        
+        Set(
+            appColors,
+            {
+                PrimaryColor: ColorValue("#A100FF"),
+                SecondaryColor: ColorValue("#7500C0"),
+            	TertiaryColor: ColorValue("#460073"),
+            	AccentPurple1: ColorValue("#B455AA"),
+            	AccentPurple2: ColorValue("#A055F5"),
+            	AccentPurple3: ColorValue("#BE82FF"),
+            	AccentPurple4: ColorValue("#DCAFFF"),
+            	AccentPurple5: ColorValue("#E6DCFF"),
+            	Black: ColorValue("#000000"),
+            	DarkGray: ColorValue("#96968C"),
+            	LightGray: ColorValue("#E6E6DC"),
+            	Blue: ColorValue("#0041F0"),
+            	LightBlue: ColorValue("#00FFFF"),
+            	Green: ColorValue("#64FF50"),
+            	BlueGreen: ColorValue("#05F0A5"),
+            	Red: ColorValue("#FF3246"),
+            	Pink: ColorValue("#FF50A0"),
+            	Orange: ColorValue("#FF7800"),
+            	Yellow: ColorValue("#FFEB32"),
+                BackgroundFill: ColorValue("#F3F2F1"),
+                OverlayBkgColor: RGBA(0, 0, 0, 0.4)
+            }
+        )
+    StartScreen: ='Landing Screen'
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

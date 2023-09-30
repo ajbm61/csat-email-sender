@@ -1,0 +1,66 @@
+AppBar As CanvasComponent:
+    Fill: =Color.Transparent
+    Height: =70
+    Logo: =SampleImage
+    UserName: =Office365Users.UserProfileV2(User().Email).displayName
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    con_AppBar As groupContainer.manualLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =67
+        Width: =Parent.Width
+        ZIndex: =1
+
+        img_AppBarLogo As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =60
+            Image: =Acc_Logo_Black_Purple_RGB
+            PaddingBottom: =5
+            Width: =120
+            X: =60
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =1
+
+        img_AB_Photo As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =56
+            Image: =User().Image
+            RadiusBottomLeft: =180
+            RadiusBottomRight: =180
+            RadiusTopLeft: =180
+            RadiusTopRight: =180
+            Width: =56
+            X: =1310 - 60
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =2
+
+        lbl_AB_UserName As label:
+            Align: =Align.Right
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =64
+            Text: =AppBar.UserName
+            Width: =277
+            X: =955
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =3
+
+    Rectangle13 As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(161, 0, 255, 1)
+        Height: =3
+        Width: =Parent.Width
+        Y: =67
+        ZIndex: =2
+

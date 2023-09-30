@@ -1,0 +1,268 @@
+cmp_ButtonLTR As CanvasComponent:
+    OnSelect():
+        ThisProperty:
+            Default: =true
+    Align: =Align.Center
+    BackgroundColor: |-
+        ="#FEF7FF"
+    BorderRadius: =15
+    BorderThickness: =2
+    DisabledColor: |-
+        ="#808080"
+    DisplayMode: =DisplayMode.Edit
+    DropShadow: =true
+    Fill: =Color.Transparent
+    Font: ="Roboto, 'Segoe UI'"
+    FontSize: =14
+    FontWeight: =FontWeight.Normal
+    Height: =50
+    Icon: |-
+        ="<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-plus' viewBox='0 0 16 16'>
+        <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/></svg>"
+    IconSize: =28
+    Margin: =5
+    Outlined: =false
+    PaddingLeft: =0
+    PrimaryColor: |-
+        ="#6750A4"
+    Text: ="BUTTON"
+    Width: =170
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    html_BLTRShadow As htmlViewer:
+        Height: =cmp_ButtonLTR.Height
+        HtmlText: |-
+            ="<div 
+                style='
+                    position: absolute;
+                    left: "& Substitute(cmp_ButtonLTR.Margin - cmp_ButtonLTR.BorderThickness * 0.5, ",", ".") &"px;
+                    top: "& Substitute(cmp_ButtonLTR.Margin - cmp_ButtonLTR.BorderThickness * 0.5, ",", ".") &"px;
+                    width: "& btn_BLTRBackground.Width + cmp_ButtonLTR.BorderThickness &"px;
+                    height: "& btn_BLTRBackground.Height + cmp_ButtonLTR.BorderThickness &"px;
+                    border-radius: "& cmp_ButtonLTR.BorderRadius &"px;        
+                    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25);
+                    '
+            >
+            
+            </div>
+            
+            "
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Visible: =cmp_ButtonLTR.DropShadow
+        Width: =cmp_ButtonLTR.Width
+        ZIndex: =1
+
+    btn_BLTRBackground As button:
+        BorderColor: |-
+            =If(
+                cmp_ButtonLTR.DisplayMode = DisplayMode.Disabled,
+                ColorValue(cmp_ButtonLTR.DisabledColor),
+                ColorValue(cmp_ButtonLTR.PrimaryColor)
+            )
+        BorderThickness: =cmp_ButtonLTR.BorderThickness
+        Color: |-
+            =With(
+                {
+                    PrimaryColor: If(
+                        cmp_ButtonLTR.DisplayMode = DisplayMode.Disabled,
+                        ColorValue(cmp_ButtonLTR.DisabledColor),
+                        ColorValue(cmp_ButtonLTR.PrimaryColor)
+                    )
+                },
+                If(
+                    cmp_ButtonLTR.Outlined,
+                    PrimaryColor,
+                    ColorValue(cmp_ButtonLTR.BackgroundColor)
+                )
+            )
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: |-
+            =With(
+                {
+                    PrimaryColor: If(
+                        cmp_ButtonLTR.DisplayMode = DisplayMode.Disabled,
+                        ColorValue(cmp_ButtonLTR.DisabledColor),
+                        ColorValue(cmp_ButtonLTR.PrimaryColor)
+                    )
+                },
+                If(
+                    cmp_ButtonLTR.Outlined,
+                    ColorValue(cmp_ButtonLTR.BackgroundColor),
+                    PrimaryColor
+                )
+            )
+        FocusedBorderColor: =ColorFade(Self.Fill, -30%)
+        FocusedBorderThickness: =cmp_ButtonLTR.BorderThickness * 1.5
+        Font: =cmp_ButtonLTR.Font
+        FontWeight: =cmp_ButtonLTR.FontWeight
+        Height: =cmp_ButtonLTR.Height - 2 * cmp_ButtonLTR.Margin
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =cmp_ButtonLTR.BorderRadius
+        RadiusBottomRight: =cmp_ButtonLTR.BorderRadius
+        RadiusTopLeft: =cmp_ButtonLTR.BorderRadius
+        RadiusTopRight: =cmp_ButtonLTR.BorderRadius
+        Size: =cmp_ButtonLTR.FontSize
+        TabIndex: =-1
+        Text: =""
+        Width: =cmp_ButtonLTR.Width - 2 * cmp_ButtonLTR.Margin
+        X: =cmp_ButtonLTR.Margin
+        Y: =cmp_ButtonLTR.Margin
+        ZIndex: =2
+
+    con_BLTR As groupContainer.horizontalAutoLayoutContainer:
+        Height: =btn_BLTRBackground.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutGap: |-
+            =If(
+                Len(cmp_ButtonLTR.Icon) > 0 && lbl_BLTRText.Visible,
+                8,
+                0
+            )
+        LayoutJustifyContent: =cmp_ButtonLTR.Align
+        LayoutMode: =LayoutMode.Auto
+        Width: =btn_BLTRBackground.Width
+        X: =btn_BLTRBackground.X + cmp_ButtonLTR.PaddingLeft
+        Y: =btn_BLTRBackground.Y
+        ZIndex: =3
+
+        img_BLTRIcon As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =Parent.Height
+            Image: |-
+                =With(
+                    {
+                        ColorFill: If(
+                            !cmp_ButtonLTR.Outlined,
+                            cmp_ButtonLTR.BackgroundColor,
+                            cmp_ButtonLTR.DisplayMode = DisplayMode.Disabled,
+                            cmp_ButtonLTR.DisabledColor,
+                            cmp_ButtonLTR.PrimaryColor
+                        )
+                    },
+                    "data:image/svg+xml;utf8, " & EncodeUrl(
+                        Substitute(
+                            cmp_ButtonLTR.Icon,
+                            "<svg ",
+                            "<svg fill='"& ColorFill &"' "
+                        )
+                    )
+                )
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            PaddingLeft: =If(lbl_BLTRText.Visible, 10, 0)
+            Visible: =Len(cmp_ButtonLTR.Icon) > 0
+            Width: =cmp_ButtonLTR.IconSize + Self.PaddingLeft
+            X: =
+            Y: =20
+            ZIndex: =1
+
+        lbl_BLTRText As label:
+            Align: |-
+                =If(
+                    Len(cmp_ButtonLTR.Icon) > 0,
+                    Align.Left,
+                    Align.Center
+                )
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: |-
+                =With(
+                    {
+                        PrimaryColor: If(
+                            cmp_ButtonLTR.DisplayMode = DisplayMode.Disabled,
+                            ColorValue(cmp_ButtonLTR.DisabledColor),
+                            ColorValue(cmp_ButtonLTR.PrimaryColor)
+                        )
+                    },
+                    If(
+                        cmp_ButtonLTR.Outlined,
+                        PrimaryColor,
+                        ColorValue(cmp_ButtonLTR.BackgroundColor)
+                    )
+                )
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =cmp_ButtonLTR.Font
+            FontWeight: =cmp_ButtonLTR.FontWeight
+            Height: =Parent.Height
+            LayoutMinWidth: =560
+            LineHeight: =1
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =
+            PaddingTop: =0
+            Size: =cmp_ButtonLTR.FontSize - 1
+            Text: =cmp_ButtonLTR.Text
+            Visible: =Len(Self.Text) > 0
+            Width: =html_BLTRTextWidth.Height + 10
+            X: =20
+            Y: =20
+            ZIndex: =2
+
+    btn_BLTR As button:
+        BorderStyle: =If(cmp_ButtonLTR.DisplayMode = DisplayMode, BorderStyle.None, BorderStyle.Solid)
+        BorderThickness: =cmp_ButtonLTR.BorderThickness
+        Color: =Color.Transparent
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =Color.Transparent
+        DisabledFill: =Color.Transparent
+        DisplayMode: =cmp_ButtonLTR.DisplayMode
+        Fill: =Color.Transparent
+        FocusedBorderColor: =ColorFade(btn_BLTRBackground.Fill, -30%)
+        FocusedBorderThickness: =Max(4, cmp_ButtonLTR.BorderThickness)
+        Font: ="Roboto"
+        FontWeight: =FontWeight.Semibold
+        Height: =cmp_ButtonLTR.Height - 2 * cmp_ButtonLTR.Margin
+        HoverColor: =Color.Transparent
+        HoverFill: =RGBA(0, 0, 0, 0.2)
+        OnSelect: =cmp_ButtonLTR.OnSelect()
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedColor: =Color.Transparent
+        PressedFill: =RGBA(0, 0, 0, 0.5)
+        RadiusBottomLeft: =cmp_ButtonLTR.BorderRadius
+        RadiusBottomRight: =cmp_ButtonLTR.BorderRadius
+        RadiusTopLeft: =cmp_ButtonLTR.BorderRadius
+        RadiusTopRight: =cmp_ButtonLTR.BorderRadius
+        Size: =14
+        Text: =""
+        Width: =cmp_ButtonLTR.Width - 2 * cmp_ButtonLTR.Margin
+        X: =cmp_ButtonLTR.Margin
+        Y: =cmp_ButtonLTR.Margin
+        ZIndex: =4
+
+    html_BLTRTextWidth As htmlViewer:
+        AutoHeight: =true
+        Fill: =Color.Transparent
+        Font: =cmp_ButtonLTR.Font
+        HtmlText: |-
+            ="<div style='"& "white-space: nowrap;"& 
+                "transform: rotate(90deg);
+                font-size: 1em;
+                font-weight: "& cmp_ButtonLTR.FontWeight &";
+                padding: 0px;
+                margin: 0px"&
+            "'>"& cmp_ButtonLTR.Text &"</div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =cmp_ButtonLTR.FontSize
+        Width: =Self.Size
+        Y: =Parent.Height
+        ZIndex: =5
+

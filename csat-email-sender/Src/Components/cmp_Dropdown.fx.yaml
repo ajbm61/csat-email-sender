@@ -1,0 +1,137 @@
+cmp_Dropdown As CanvasComponent:
+    BorderRadius: =5
+    Fill: =Color.Transparent
+    Height: =50
+    Items: |-
+        =Table(
+            {Item: "Home"},
+            {Item: "Admin"},
+            {Item: "About"},
+            {Item: "Help"}
+        )
+    OnReset: |-
+        =Reset(Gallery7);
+        Set(isDropdown, !isDropdown);
+    Width: =250
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    "Gallery7 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DelayItemLoading: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =0
+        Height: =39
+        Items: =cmp_Dropdown.Items
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: =Set(isDropdown, !isDropdown)
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =34
+        Transition: =Transition.Push
+        Visible: =isDropdown
+        Width: =Button1.Width
+        X: =Button1.X
+        Y: =Button1.Y + Button1.Height
+        ZIndex: =1
+
+        Title1 As label:
+            Color: =RGBA(50, 49, 48, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =28
+            HoverFill: =Color.WhiteSmoke
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.Item
+            Width: =Parent.TemplateWidth - 4
+            X: =Parent.TemplatePadding
+            Y: =3
+            ZIndex: =2
+
+    Container9 As groupContainer.manualLayoutContainer:
+        Height: =CountRows(Gallery7.AllItems) * (Gallery7.TemplateHeight + Gallery7.TemplatePadding)
+        RadiusBottomLeft: =cmp_Dropdown.BorderRadius
+        RadiusBottomRight: =cmp_Dropdown.BorderRadius
+        RadiusTopLeft: =cmp_Dropdown.BorderRadius
+        RadiusTopRight: =cmp_Dropdown.BorderRadius
+        Visible: =isDropdown
+        Width: =Button1.Width
+        X: =Button1.X
+        Y: =Button1.Y + Button1.Height
+        ZIndex: =2
+
+    Button1 As button:
+        Align: =Align.Left
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =1
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =cmp_Dropdown.Fill
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =Parent.Height - 2 * 5
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(237, 237, 237, 1)
+        OnSelect: =Set(isDropdown, !isDropdown)
+        PaddingLeft: =10
+        PressedBorderColor: =
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =Color.WhiteSmoke
+        RadiusBottomLeft: =cmp_Dropdown.BorderRadius
+        RadiusBottomRight: =cmp_Dropdown.BorderRadius
+        RadiusTopLeft: =cmp_Dropdown.BorderRadius
+        RadiusTopRight: =cmp_Dropdown.BorderRadius
+        Size: =12
+        Text: =Gallery7.Selected.Item
+        Width: =Parent.Width - 2 * 5
+        X: =5
+        Y: =5
+        ZIndex: =3
+
+    img_DropdownChevron As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =18
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: |-
+            ="data:image/svg+xml;utf8, "& EncodeUrl(
+                "<svg width='48' height='48' viewBox='0 0 48 48' fill='#252423' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M8.36612 16.1161C7.87796 16.6043 7.87796 17.3957 8.36612 17.8839L23.1161 32.6339C23.6043 33.122 24.3957 33.122 24.8839 32.6339L39.6339 17.8839C40.122 17.3957 40.122 16.6043 39.6339 16.1161C39.1457 15.628 38.3543 15.628 37.8661 16.1161L24 29.9822L10.1339 16.1161C9.64573 15.628 8.85427 15.628 8.36612 16.1161Z' />
+            </svg>")
+        OnSelect: =Set(isDropdown, !isDropdown)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        TabIndex: =0
+        Width: =18
+        X: =214
+        Y: =16
+        ZIndex: =4
+
+    Rectangle6 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(135, 100, 184, 1)
+        FocusedBorderThickness: =4
+        Height: =2
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =isDropdown
+        Width: =Button1.Width
+        X: =Button1.X
+        Y: =Button1.Y + Button1.Height - Self.Height
+        ZIndex: =5
+

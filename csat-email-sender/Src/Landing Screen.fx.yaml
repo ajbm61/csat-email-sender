@@ -1,0 +1,327 @@
+"'Landing Screen' As screen":
+    BackgroundImage: =ACC_Gradient_Dark_3
+    Fill: =RGBA(237, 237, 237, 1)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =RGBA(135, 100, 184, 1)
+
+    img_ACN_Logo As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =514
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =Acc_GT_Dimensional_RGB
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =500
+        X: =433
+        Y: =116
+        ZIndex: =1
+
+    lbl_AppName As label:
+        Align: =Align.Center
+        AutoHeight: =true
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: ="Graphik"
+        FontWeight: =FontWeight.Bold
+        Height: =206
+        LineHeight: =1
+        Size: =82
+        Text: ="CSAT SURVEY SENDER"
+        Width: =800
+        X: =(Parent.Width - Self.Width) / 2
+        Y: =157
+        ZIndex: =2
+
+    "GalDetails As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DelayItemLoading: =true
+        Height: =130
+        Items: |-
+            =Filter(
+                'CSR Details',
+                'Created By'.Email = UserEmail
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =116
+        Visible: =false
+        Width: =397
+        X: =968
+        ZIndex: =3
+
+        Title4 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Solution Area'.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight - (Self.Size*1.8 + Subtitle4.Size*1.8 + 2 + Body1.Size*1.8)) / 2
+            ZIndex: =1
+
+        Subtitle4 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =13
+            Text: =ThisItem.Product
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title4.Width
+            X: =Title4.X
+            Y: =Title4.Y + Title4.Height
+            ZIndex: =2
+
+        Body1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =13
+            Text: =ThisItem.Feature
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title4.Width
+            X: =Title4.X
+            Y: =Subtitle4.Y + Subtitle4.Height
+            ZIndex: =3
+
+        NextArrow4 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(166, 166, 166, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Tooltip: ="View item details"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator3 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =4
+            Height: =8
+            HoverFill: =RGBA(135, 100, 184, 1)
+            OnSelect: =Select(Parent)
+            PressedFill: =RGBA(135, 100, 184, 1)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Rectangle7 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Fill: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            Height: =Parent.TemplateHeight - Separator3.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =6
+
+    Con_Navigations As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Fill: |-
+            =//RGBA(255, 255, 255, .5)
+            Color.Transparent
+        Height: =204
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =1096 - 270
+        X: =270
+        Y: =464
+        ZIndex: =4
+
+        html_EmailBoxShadow As htmlViewer:
+            Height: =btn_GoToEmailSurvey.Height + 10
+            HtmlText: |-
+                ="<div style='
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+                    width: "& btn_GoToEmailSurvey.Width &"px;
+                    height: "& btn_GoToEmailSurvey.Height &"px;
+                    border-radius: 50px;
+                    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25);
+                '</div>"
+            Width: =btn_GoToEmailSurvey.Width + 10
+            X: =btn_GoToEmailSurvey.X - 5
+            Y: =btn_GoToEmailSurvey.Y - 5
+            ZIndex: =2
+
+        html_DetailsBoxShadow As htmlViewer:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =btn_GoToDetails.Height + 10
+            HtmlText: |-
+                ="<div style='
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+                    width: "& btn_GoToDetails.Width &"px;
+                    height: "& btn_GoToDetails.Height &"px;
+                    border-radius: 50px;
+                    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25);
+                '</div>"
+            Width: =btn_GoToDetails.Width + 10
+            X: =btn_GoToDetails.X - 5
+            Y: =btn_GoToDetails.Y - 5
+            ZIndex: =3
+
+        btn_GoToEmailSurvey As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(29, 27, 32, 0.38)
+            DisabledFill: =RGBA(29, 27, 32, 0.12)
+            Fill: =RGBA(161, 0, 255, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FontWeight: =FontWeight.Semibold
+            Height: =92
+            HoverBorderColor: =Self.HoverColor
+            HoverFill: =ColorFade(Self.Fill, -8%)
+            OnSelect: =Navigate('Email Screen', ScreenTransition.Fade);
+            PressedBorderColor: =ColorFade(Self.HoverBorderColor, -20%)
+            PressedColor: =Self.HoverColor
+            PressedFill: =ColorFade(Self.Fill, -12%)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Size: =18
+            Text: ="SEND SURVEY INVITE"
+            Width: =372
+            X: =451 - 30
+            Y: =62
+            ZIndex: =4
+
+        btn_GoToDetails As button:
+            BorderColor: =RGBA(121, 116, 126, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(29, 27, 32, 0.38)
+            DisabledFill: =RGBA(29, 27, 32, 0.12)
+            Fill: =RGBA(161, 0, 255, 1)
+            FocusedBorderColor: =Color.Transparent
+            FocusedBorderThickness: =0
+            FontWeight: =FontWeight.Semibold
+            Height: =92
+            HoverBorderColor: =Self.HoverColor
+            HoverFill: =ColorFade(Self.Fill, -8%)
+            OnSelect: |-
+                =ClearCollect(
+                    colAllProduct,
+                    {
+                        Value: "All"
+                    },
+                    Sort(
+                        Distinct(
+                            Filter(
+                                DetailsCollection,
+                                'Created By'.Email = UserEmail
+                            ),
+                            Product
+                        ),
+                        Value
+                    )
+                );
+                
+                ClearCollect(
+                    colAllTeam,
+                    {
+                        Value: "All"
+                    },
+                    Sort(
+                        Distinct(
+                            Filter(
+                                DetailsCollection,
+                                'Created By'.Email = UserEmail
+                            ),
+                            Team
+                        ),
+                        Value
+                    )
+                );
+                
+                Navigate('Gallery Screen', ScreenTransition.Fade);
+            PressedBorderColor: =ColorFade(Self.HoverBorderColor, -20%)
+            PressedColor: =Self.Color
+            PressedFill: =ColorFade(Self.Fill, -12%)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Size: =18
+            Text: ="FEATURE GALLERY"
+            Width: =372
+            X: =30
+            Y: =62
+            ZIndex: =5
+

@@ -1,0 +1,152 @@
+ProgressButton As CanvasComponent:
+    OnSelect():
+        ThisProperty:
+            Default: =true
+    BackgroundFill: |-
+        =ColorValue("#1e6091")
+    DisabledColor: |-
+        =ColorValue("#C8C6C4")
+    DisplayMode: =DisplayMode.Edit
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =50
+    Items: |-
+        =Table(
+            {
+                id: 1,
+                text: "send request"
+            },
+            {
+                id: 2,
+                text: "sending... click to cancel"
+            },
+            {
+                id: 3,
+                text: "sent"
+            }
+        )
+    OnReset: |-
+        =Set(progressTrack, 1);
+        Set(progressTimer, false);
+    ProgressFill: |-
+        =ColorValue("#168aad")
+    ProgressHeight: =40
+    ProgressWidth: =190
+    TextColor: =Color.White
+    Width: =200
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    tmr_ProgressButton As timer:
+        AutoStart: =progressTimer
+        Duration: =2000
+        Fill: =RGBA(56, 96, 178, 1)
+        Height: =ProgressButton.ProgressHeight
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+        OnTimerEnd: |-
+            =Set(progressTrack, 3);
+            Set(progressTimer, false)
+        Reset: =!progressTimer
+        Visible: =false
+        Width: =ProgressButton.ProgressWidth
+        X: =5
+        Y: =5
+        ZIndex: =1
+
+    btn_BkgProgressButton As button:
+        BorderColor: =Color.Transparent
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.View
+        Fill: =ProgressButton.BackgroundFill
+        FontWeight: =FontWeight.Semibold
+        Height: =ProgressButton.ProgressHeight
+        HoverBorderColor: =Self.Fill
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =14
+        Text: =""
+        Width: =ProgressButton.ProgressWidth
+        X: =5
+        Y: =5
+        ZIndex: =2
+
+    btn_ProgressButton As button:
+        BorderColor: =Color.Transparent
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =ProgressButton.ProgressFill
+        FontWeight: =FontWeight.Semibold
+        Height: =ProgressButton.ProgressHeight
+        HoverBorderColor: =Self.Fill
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =btn_BkgProgressButton.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =14
+        Text: =""
+        Width: =ProgressButton.ProgressWidth * (tmr_ProgressButton.Value / tmr_ProgressButton.Duration)
+        X: =5
+        Y: =5
+        ZIndex: =3
+
+    lbl_ProgressButton As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =ProgressButton.TextColor
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =ProgressButton.ProgressHeight
+        Text: =LookUp(ProgressButton.Items, id = progressTrack, text)
+        Width: =ProgressButton.ProgressWidth
+        X: =5
+        Y: =5
+        ZIndex: =4
+
+    btn_OverlayProgressButton As button:
+        BorderColor: =Color.Transparent
+        BorderThickness: =0
+        Color: =Color.Transparent
+        DisabledBorderColor: =Color.Transparent
+        DisabledColor: =Color.Transparent
+        DisabledFill: =Color.Transparent
+        DisplayMode: =ProgressButton.DisplayMode
+        Fill: |-
+            =If(
+                ProgressButton.DisplayMode = DisplayMode.Disabled,
+                ProgressButton.DisabledColor,
+                Color.Transparent
+            )
+        FocusedBorderColor: =Color.Transparent
+        FocusedBorderThickness: =0
+        FontWeight: =FontWeight.Semibold
+        Height: =ProgressButton.ProgressHeight
+        HoverBorderColor: =Color.Transparent
+        HoverColor: =Color.Transparent
+        HoverFill: =Color.Transparent
+        OnSelect: |-
+            =Set(progressTimer, !progressTimer);
+            Set(progressTrack, 2);
+            ProgressButton.OnSelect()
+        PressedBorderColor: =Color.Transparent
+        PressedColor: =Color.Transparent
+        PressedFill: =Color.Transparent
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =14
+        Text: =""
+        Width: =ProgressButton.ProgressWidth
+        X: =5
+        Y: =5
+        ZIndex: =5
+

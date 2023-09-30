@@ -1,0 +1,246 @@
+cmp_Button As CanvasComponent:
+    OnSelect():
+        ThisProperty:
+            Default: =true
+    Align: =Align.Center
+    BorderRadius: =10
+    BorderThickness: =1
+    DisabledColor: |-
+        =//"#1D1B20"
+        //"#38363A"
+        //"RGBA(0, 0, 0, 0.2)"
+        "#7C757E"
+    DisplayMode: =DisplayMode.Edit
+    DropShadow: =If(cmp_Button.Outline, false, true)
+    Fill: =Color.Transparent
+    Font: ="Roboto"
+    FontSize: =14
+    FontWeight: =FontWeight.Normal
+    Height: =60
+    Icon: |-
+        ="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><title>find-replace</title><path d='M11,6C12.38,6 13.63,6.56 14.54,7.46L12,10H18V4L15.95,6.05C14.68,4.78 12.93,4 11,4C7.47,4 4.57,6.61 4.08,10H6.1C6.56,7.72 8.58,6 11,6M16.64,15.14C17.3,14.24 17.76,13.17 17.92,12H15.9C15.44,14.28 13.42,16 11,16C9.62,16 8.37,15.44 7.46,14.54L10,12H4V18L6.05,15.95C7.32,17.22 9.07,18 11,18C12.55,18 14,17.5 15.14,16.64L20,21.5L21.5,20L16.64,15.14Z' /></svg>"
+    IconSize: =24
+    Margin: =5
+    OnReset: =false
+    Outline: =false
+    PaddingLeft: =0
+    PrimaryColor: |-
+        ="#7500C0"
+    Text: ="Button"
+    TextColor: |-
+        ="#FFFFFF"
+    Width: =200
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    html_BtnShadow_2 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='
+                position: absolute;
+                margin: auto;
+                left: "& cmp_Button.Margin &"px;
+                top: "& cmp_Button.Margin &"px;
+                width: "& btn_BtnBkg_2.Width&"px;
+                height: "& btn_BtnBkg_2.Height &"px;
+                border-radius: "& cmp_Button.BorderRadius &"px;
+                box-shadow: 1px 1px 2px 2px rgba(0,0,0,.18)
+            '></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Visible: =cmp_Button.DropShadow
+        Width: =Parent.Width
+        ZIndex: =1
+
+    btn_BtnBkg_2 As button:
+        BorderColor: |-
+            =With(
+                {
+                    outlineBorder: If(
+                        cmp_Button.Outline,
+                        ColorValue("#79747E"),
+                        Color.Transparent
+                    )
+                },
+                If(
+                    cmp_Button.DisplayMode = DisplayMode.Disabled,
+                    ColorFade(ColorValue(cmp_Button.DisabledColor), 0.12),
+                    outlineBorder
+                )
+            )
+        BorderStyle: =If(cmp_Button.Outline, BorderStyle.Solid, BorderStyle.None)
+        BorderThickness: =cmp_Button.BorderThickness
+        Color: |-
+            =With(
+                {
+                    textColor: If(
+                        cmp_Button.DisplayMode = DisplayMode.Disabled,
+                        ColorValue(cmp_Button.DisabledColor),
+                        ColorValue(cmp_Button.PrimaryColor)
+                    )
+                },
+                If(
+                    cmp_Button.Outline,
+                    textColor,
+                    ColorValue(cmp_Button.TextColor)
+                )
+            )
+        DisabledBorderColor: |-
+            =ColorValue("#A6A6A6")
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: |-
+            =With(
+                {
+                    disabledColor: If(
+                        cmp_Button.DisplayMode = DisplayMode.Disabled,
+                        ColorValue(cmp_Button.DisabledColor),
+                        ColorValue(cmp_Button.PrimaryColor)
+                    ),
+                    outlinedColor: If(
+                        cmp_Button.Outline = true,
+                        Color.Transparent,
+                        ColorValue(cmp_Button.PrimaryColor)
+                    )
+                },
+                If(
+                    cmp_Button.Outline,
+                    outlinedColor,
+                    disabledColor
+                )
+            )
+        FocusedBorderThickness: =cmp_Button.BorderThickness
+        Font: =cmp_Button.Font
+        FontWeight: =cmp_Button.FontWeight
+        Height: =Parent.Height - 2 * cmp_Button.Margin
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =cmp_Button.BorderRadius
+        RadiusBottomRight: =cmp_Button.BorderRadius
+        RadiusTopLeft: =cmp_Button.BorderRadius
+        RadiusTopRight: =cmp_Button.BorderRadius
+        Size: =cmp_Button.FontSize
+        TabIndex: =-1
+        Text: =""
+        Width: =Parent.Width - 2 * cmp_Button.Margin
+        X: =cmp_Button.Margin
+        Y: =cmp_Button.Margin
+        ZIndex: =2
+
+    con_BtnWrapper As groupContainer.horizontalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Height: =btn_BtnBkg_2.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutGap: =If(Len(cmp_Button.Icon) > 0 && lbl_BtnText_2.Visible, 16, 0)
+        LayoutJustifyContent: =cmp_Button.Align
+        LayoutMode: =LayoutMode.Auto
+        Width: =btn_BtnBkg_2.Width
+        X: =btn_BtnBkg_2.X + cmp_Button.PaddingLeft
+        Y: =btn_BtnBkg_2.Y
+        ZIndex: =3
+
+        img_BtnIcon_2 As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =Parent.Height
+            Image: |-
+                =With(
+                    {
+                        currentColor: If(
+                            !cmp_Button.Outline,
+                            "#FFFFFF",
+                            cmp_Button.PrimaryColor
+                        )
+                    },
+                    "data:image/svg+xml;utf8, "& EncodeUrl(
+                        Substitute(
+                            cmp_Button.Icon,
+                            "<svg ",
+                            "<svg fill='"& currentColor &"' "
+                        )
+                    )
+                )
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            PaddingLeft: =If(Len(cmp_Button.Text) > 0 || lbl_BtnText_2.Visible, 10, 0)
+            Width: =cmp_Button.IconSize + Self.PaddingLeft
+            X: =20
+            Y: =20
+            ZIndex: =1
+
+        lbl_BtnText_2 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: |-
+                =With(
+                    {
+                        textColor: If(
+                            cmp_Button.DisplayMode = DisplayMode.Disabled,
+                            ColorValue(cmp_Button.DisabledColor),
+                            ColorValue(cmp_Button.PrimaryColor)
+                        )
+                    },
+                    If(
+                        cmp_Button.Outline,
+                        textColor,
+                        ColorValue(cmp_Button.TextColor)
+                    )
+                )
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =cmp_Button.Font
+            FontWeight: =cmp_Button.FontWeight
+            Height: =Parent.Height
+            LayoutMinHeight: =20
+            LayoutMinWidth: =560
+            LineHeight: =1
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =cmp_Button.FontSize
+            Text: =cmp_Button.Text
+            Visible: =Len(Self.Text) > 0
+            Width: =Len(Self.Text) * (Self.Size)
+            X: =20
+            Y: =20
+            ZIndex: =2
+
+    btn_Main As button:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =Color.Transparent
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =Color.Transparent
+        DisabledFill: =Color.Transparent
+        DisplayMode: =cmp_Button.DisplayMode
+        Fill: =Color.Transparent
+        FocusedBorderThickness: =0
+        FontWeight: =FontWeight.Semibold
+        Height: =cmp_Button.Height - 2 * cmp_Button.Margin
+        HoverColor: =Color.Transparent
+        HoverFill: =RGBA(0, 0, 0, 0.2)
+        OnSelect: =cmp_Button.OnSelect()
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedColor: =Color.Transparent
+        PressedFill: =RGBA(0, 0, 0, 0.5)
+        RadiusBottomLeft: =cmp_Button.BorderRadius
+        RadiusBottomRight: =cmp_Button.BorderRadius
+        RadiusTopLeft: =cmp_Button.BorderRadius
+        RadiusTopRight: =cmp_Button.BorderRadius
+        Size: =14
+        Text: =""
+        Width: =cmp_Button.Width - 2 * cmp_Button.Margin
+        X: =cmp_Button.Margin
+        Y: =cmp_Button.Margin
+        ZIndex: =4
+

@@ -1,0 +1,448 @@
+Screen7 As screen:
+    Fill: =RGBA(237, 237, 237, 1)
+    LoadingSpinnerColor: =RGBA(135, 100, 184, 1)
+    OnVisible: |-
+        =Set(progressBtn, 3);
+        Reset(ProgressButton_2);
+        Reset(cmp_ProgressButton_1);
+        Reset(cmp_Button_4);
+
+    AppBar_1 As AppBar:
+        UserName: ="Feature Test"
+
+    CheckboxCanvas1 As Checkbox:
+        BasePaletteColor: =""
+        DisplayMode: =DisplayMode.Edit
+        Height: =27
+        Width: =126
+        X: =40
+        Y: =677
+        ZIndex: =2
+
+    Checkbox1 As checkbox:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        CheckboxBackgroundFill: =RGBA(0, 0, 0, 0)
+        CheckboxBorderColor: =RGBA(153, 153, 153, 1)
+        CheckboxSize: =25
+        CheckmarkFill: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(102, 102, 102, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        Height: =30
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(51, 51, 51, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Size: =10.5
+        Text: ="Checkbox"
+        Width: =126
+        X: =40
+        Y: =734
+        ZIndex: =3
+
+    Container8 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Dropdown6.Height + 6
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Dropdown6.Width + 5
+        X: =486
+        Y: =128
+        ZIndex: =6
+
+        TextInput2 As text:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =Dropdown6.Height + 2
+            HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PressedBorderColor: =RGBA(135, 100, 184, 1)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =13
+            Width: =Dropdown6.Width + 1
+            X: =Dropdown6.X - 1
+            Y: =Dropdown6.Y - 1
+            ZIndex: =1
+
+        Dropdown6 As dropdown:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            ChevronBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(109, 49, 162, 1)
+            ChevronHoverBackground: =
+            ChevronHoverFill: =RGBA(109, 49, 162, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            FocusedBorderColor: =Color.Transparent
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            Height: =36
+            HoverBorderColor: =RGBA(109, 49, 162, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(109, 49, 162, .2)
+            Items: =DropDownSample
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(109, 49, 162, 1)
+            SelectionFill: =RGBA(109, 49, 162, 1)
+            Size: =13
+            Width: =324
+            X: =3
+            Y: =4
+            ZIndex: =2
+
+    Container8_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =234
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =413
+        X: =444
+        Y: =190
+        ZIndex: =8
+
+        TextInput2_1 As text:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =Dropdown6_1.Height + 2
+            HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PressedBorderColor: =RGBA(135, 100, 184, 1)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =13
+            Width: =Dropdown6_1.Width + 3
+            X: =Dropdown6_1.X - 2
+            Y: =Dropdown6_1.Y - 1
+            ZIndex: =1
+
+        Dropdown6_1 As dropdown:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            ChevronBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(109, 49, 162, 1)
+            ChevronHoverBackground: =
+            ChevronHoverFill: =RGBA(109, 49, 162, 1)
+            Color: =gblStyles.Dropdown.Color
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =Color.Transparent
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverBorderColor: =RGBA(109, 49, 162, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(109, 49, 162, .2)
+            Items: =Choices([@'CSR Details'].'Solution Area')
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(109, 49, 162, 1)
+            SelectionFill: =RGBA(109, 49, 162, 1)
+            Size: =14
+            Width: =324
+            X: =44
+            Y: =58
+            ZIndex: =2
+
+        DropdownCanvas1 As Dropdown.pcfdataset:
+            BasePaletteColor: =""
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =0
+            Height: =32
+            Items: =DropDownSample
+            ValidationState: ="None"
+            Width: =164
+            X: =123
+            Y: =157
+            ZIndex: =3
+
+    ProgressButton_2 As ProgressButton:
+        BackgroundFill: |-
+            =ColorValue("#a100ff")
+        Items: |-
+            =Table(
+                {
+                    id: 1,
+                    text: "Send Survey"
+                },
+                {
+                    id: 2,
+                    text: "Sending..."
+                },
+                {
+                    id: 3,
+                    text: "Email Sent"
+                }
+            )
+        OnSelect: =true
+        ProgressFill: |-
+            =ColorValue("#6200ee")
+        X: =710
+        Y: =598
+        ZIndex: =11
+
+    Container22 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =132
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =342
+        X: =21
+        Y: =146
+        ZIndex: =12
+
+        TextInput3 As text:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            Default: ="Text input"
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =Dropdown4.Height + 2
+            HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PressedBorderColor: =RGBA(135, 100, 184, 1)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =13
+            Width: =Dropdown4.Width + 4
+            X: =Dropdown4.X - 2
+            Y: =Dropdown4.Y - 1
+            ZIndex: =1
+
+        Dropdown4 As dropdown:
+            BorderColor: =RGBA(255, 255, 255, 0)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(56, 96, 178, 1)
+            ChevronHoverBackground: =RGBA(255, 255, 255, 1)
+            ChevronHoverFill: =RGBA(56, 96, 178, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            Items: =DropDownSample
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(135, 100, 184, 1)
+            SelectionFill: =RGBA(135, 100, 184, 1)
+            Size: =13
+            Width: =250
+            X: =57
+            Y: =40
+            ZIndex: =2
+
+    cmp_ProgressButton_1 As cmp_ProgressButton:
+        FontWeight: =FontWeight.Semibold
+        OnSelect: =true
+        ProgressColor: |-
+            =ColorValue("#A100FF")
+        X: =120
+        Y: =354
+        ZIndex: =13
+
+    cmp_Button_4 As cmp_Button_3:
+        OnSelect: =true
+        X: =92
+        Y: =73
+        ZIndex: =14
+
+    Container19 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Width: =50
+        X: =1090
+        Y: =570
+        ZIndex: =15
+
+        Image9 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =Min(Parent.Width, Parent.Height) - 5 * 2
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    Substitute(
+                        If(
+                            varIsChecked,
+                            "<svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6Z'/></svg>",
+                            "<svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M18 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h12Zm-1.53 4.97L10 14.44l-2.47-2.47a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l7-7a.75.75 0 0 0-1.06-1.06Z'/></svg>"
+                        ),
+                        "<svg ",
+                        "<svg fill='"& If(varIsChecked, "#96968C", "#A100FF") &"' "
+                    )
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =Min(Parent.Width, Parent.Height) - 5 * 2
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Checkbox1_1 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            CheckboxBackgroundFill: =RGBA(0, 0, 0, 0)
+            CheckboxBorderColor: =RGBA(153, 153, 153, 1)
+            CheckboxSize: =25
+            CheckmarkFill: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(102, 102, 102, 1)
+            Default: =varIsChecked
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            OnCheck: =Set(varIsChecked, true)
+            OnUncheck: =Set(varIsChecked, false)
+            PaddingBottom: =3
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Reset: =true
+            Size: =10.5
+            Text: =""
+            Visible: =false
+            Width: =25
+            X: =25
+            Y: =25
+            ZIndex: =2
+
+        Button22 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =Image9.Height - 10
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(135, 100, 184, 0.5)
+            OnSelect: =Set(varIsChecked, !varIsChecked)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =
+            PressedColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =15
+            Text: =""
+            Width: =Image9.Width - 10
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =3
+
+    Image9_1 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =25
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6Z' fill='#212121'/></svg>"
+            )
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =25
+        X: =40
+        Y: =702
+        ZIndex: =16
+
