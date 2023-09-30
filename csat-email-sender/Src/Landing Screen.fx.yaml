@@ -4,6 +4,19 @@
     ImagePosition: =ImagePosition.Fill
     LoadingSpinnerColor: =RGBA(135, 100, 184, 1)
 
+    lbl_AppVersion As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Text: ="v1.0"
+        X: =12
+        Y: =728
+        ZIndex: =1
+
     img_ACN_Logo As image:
         BorderColor: =RGBA(0, 0, 0, 0)
         BorderStyle: =BorderStyle.None
@@ -20,7 +33,7 @@
         Width: =500
         X: =433
         Y: =116
-        ZIndex: =1
+        ZIndex: =2
 
     lbl_AppName As label:
         Align: =Align.Center
@@ -41,7 +54,7 @@
         Width: =800
         X: =(Parent.Width - Self.Width) / 2
         Y: =157
-        ZIndex: =2
+        ZIndex: =3
 
     "GalDetails As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
         BorderColor: =RGBA(166, 166, 166, 1)
@@ -59,7 +72,7 @@
         Visible: =false
         Width: =397
         X: =968
-        ZIndex: =3
+        ZIndex: =4
 
         Title4 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -196,7 +209,7 @@
         Width: =1096 - 270
         X: =270
         Y: =464
-        ZIndex: =4
+        ZIndex: =5
 
         html_EmailBoxShadow As htmlViewer:
             Height: =btn_GoToEmailSurvey.Height + 10
