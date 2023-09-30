@@ -106,7 +106,7 @@
         "Name": "html_BLTRShadow",
         "Parent": "cmp_ButtonLTR",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 558,
+        "PublishOrderIndex": 553,
         "Rules": [
           {
             "Category": "Data",
@@ -520,7 +520,7 @@
         "Name": "btn_BLTRBackground",
         "Parent": "cmp_ButtonLTR",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 559,
+        "PublishOrderIndex": 554,
         "Rules": [
           {
             "Category": "Data",
@@ -1018,7 +1018,7 @@
             "Name": "img_BLTRIcon",
             "Parent": "con_BLTR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 561,
+            "PublishOrderIndex": 556,
             "Rules": [
               {
                 "Category": "Data",
@@ -1471,7 +1471,7 @@
             "Name": "lbl_BLTRText",
             "Parent": "con_BLTR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 562,
+            "PublishOrderIndex": 557,
             "Rules": [
               {
                 "Category": "Data",
@@ -1861,7 +1861,7 @@
         "Name": "con_BLTR",
         "Parent": "cmp_ButtonLTR",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 560,
+        "PublishOrderIndex": 555,
         "Rules": [
           {
             "Category": "Design",
@@ -2321,7 +2321,7 @@
         "Name": "btn_BLTR",
         "Parent": "cmp_ButtonLTR",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 563,
+        "PublishOrderIndex": 558,
         "Rules": [
           {
             "Category": "Data",
@@ -2703,7 +2703,7 @@
         "Name": "html_BLTRTextWidth",
         "Parent": "cmp_ButtonLTR",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 564,
+        "PublishOrderIndex": 559,
         "Rules": [
           {
             "Category": "Data",

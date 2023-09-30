@@ -118,7 +118,7 @@
         "Name": "tmr_ProgressButton",
         "Parent": "ProgressButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 538,
+        "PublishOrderIndex": 533,
         "Rules": [
           {
             "Category": "Data",
@@ -486,7 +486,7 @@
         "Name": "btn_BkgProgressButton",
         "Parent": "ProgressButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 539,
+        "PublishOrderIndex": 534,
         "Rules": [
           {
             "Category": "Data",
@@ -866,7 +866,7 @@
         "Name": "btn_ProgressButton",
         "Parent": "ProgressButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 540,
+        "PublishOrderIndex": 535,
         "Rules": [
           {
             "Category": "Data",
@@ -1208,7 +1208,7 @@
         "Name": "lbl_ProgressButton",
         "Parent": "ProgressButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 541,
+        "PublishOrderIndex": 536,
         "Rules": [
           {
             "Category": "Data",
@@ -1704,7 +1704,7 @@
         "Name": "btn_OverlayProgressButton",
         "Parent": "ProgressButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 542,
+        "PublishOrderIndex": 537,
         "Rules": [
           {
             "Category": "Data",
